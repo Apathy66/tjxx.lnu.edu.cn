@@ -1,17 +1,16 @@
+import os
+import time
+import datetime
+import vthread
+import pyautogui
+import solutionclass
+from solutionclass import MyError
+from solutionclass import Solution
+
+pool_1 = vthread.pool(1,gqueue=1)
+pool_2 = vthread.pool(1,gqueue=2)
+
 def main_handler(event, context):
-    #你写的东西
-    import os
-    import time
-    import datetime
-    import vthread
-    import pyautogui
-    import solutionclass
-    from solutionclass import MyError
-    from solutionclass import Solution
-
-    pool_1 = vthread.pool(1,gqueue=1)
-    pool_2 = vthread.pool(1,gqueue=2)
-
     @pool_1
     def warningthread(_text):
         pyautogui.alert(_text)
